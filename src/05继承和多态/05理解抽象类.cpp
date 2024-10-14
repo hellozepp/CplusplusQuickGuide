@@ -56,7 +56,7 @@ void bark(Animal *p)
 }
 
 // 汽车的基类
-class Car // 抽象类
+class Car // 抽象类，跟类一样用同样的class关键字，区别是有纯虚函数
 {
 public:
 	Car(string name, double oil) :_name(name), _oil(oil) {}
@@ -70,7 +70,7 @@ public:
 protected:
 	string _name;
 	double _oil;
-	virtual double getMilesPerGallon() = 0; // 不同的车1升能跑的里程不同,所以声明为纯虚函数
+	virtual double getMilesPerGallon() = 0; // 不同的车1升能跑的里程不同,所以声明为纯虚函数，不用实现
 };
 class Benz : public Car
 {

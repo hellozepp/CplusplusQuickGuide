@@ -47,15 +47,18 @@ public:
 protected:
 	int ma;
 };
+
 class Derive : public Base
 {
 public:
+   // 注意基类成员初始化不能用ma(data)这种方式，必须调用基类构造函数
 	Derive(int data = 20) :Base(data), mb(data) {}
 	/*
 	总结四：
 	如果派生类中的方法，和基类继承来的某个方法，返回值、函数名、参数列表都相同，
 	而且基类的方法是virtual虚函数，那么派生类的这个方法，自动处理成虚函数
-	重写<=>覆盖 (这里重写等同于覆盖)   
+	重写<=>覆盖 (这里重写等同于覆盖) override
+    这里不加virtual也是虚函数，因为基类的show是虚函数
 	*/
 	void show() { cout << "Derive::show()" << endl; }
 private:
